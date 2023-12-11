@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Matola Sonwabo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+<!-- Add a navigation menu.
+     Notice the URL for links are prefixed by a `#`.
+     It is normally used to point to a specific part of a page.
+     This means that the browser will look on the page instead of making a new page request.
+     We can use this to capture the change in the location and swap out parts as we want.  -->
+
+<div id="app">
+    <nav>
+        <a id="aboutbutton" href="#/AboutMe">About</a>
+        <a id="myskills" href="#/Skills">Skills</a>
+        <a id="contact" href="#/Contact">Contact</a>
+        <a id="projects" href="#/Projects">Projects</a>
+    
+    </nav>
+    
+    <div id="home">
+        <h3>
+            <i>Matola Sonwabo</i>
+        </h3>
+        <div id="welcome">
+            <p>
+                I am a Junior Software Engineer based in South Africa I am also an Azure Cloud Achitect
+            </p>
+        </div>
+        
+        <div class="text-container">
+            <p id="animated-text"></p>
+          </div>
+    </div>
+
+</div>
+
+<!-- <script id="default-template" type="text/handlebars-template">
+    
+
+</script> -->
+
+<script id="about-template" type="text/handlebars-template">
+    <nav>
+        <a id="homeButt" href="#/">Home</a>
+        <a id="myskills" href="#/Skills">Skills</a>
+        <a id="contact" href="#/Contact">Contact</a>
+        <a id="projects" href="#/Projects">Projects</a>
+    
+    </nav>
+    <div id="about">
+        <p style="color:snow; margin-top: 17px; font-size: 17px;">I am a passionate junior developer seeking opportunities to utilize my skills in your company. I studied Information Technology and Compter Science at King Sabatha Dalindyebo TVET College but soon realized my passion was for software development. Thereafter I decided to join WeThinkCode and studied software engineering, it was challenging but I thoroughly enjoyed the challenge.</p>
+        <div id="whoami">
+            <div id="image-side">
+                <div id="image">
+                    <img src="../assets/img/Sonwabo Matola.png" width="100%" height="100%">
+                </div>
+            </div>
+            <div id="inform">
+                <h2><i>Software Engineer / Cloud Architect</i></h2>
+                <p>Basic information about Matola Sonwabo</p>
+                <p>
+                    <b>
+                        <i>
+                            Qualification:
+                        </i>
+                    </b>
+                    NQF Level 5 Software engineering
+                </p>
+                <p>
+                    <b>
+                        <i>
+                            Qualification:
+                        </i>
+                    </b>
+                    Cloud Architect
+                </p>
+                <p href="email:sonmatol021@student.wethinkcode.co.za">
+                    <b>
+                        <i>
+                            Email:
+                        </i>
+                    </b>
+                    sonmatol021@student.wethinkcode.co.za
+                </p>
+                <p phone="+27780806876">
+                    <b>
+                        <i>
+                            Phone:
+                        </i>
+                    </b>
+                    +27-780 806 876
+                </p>
+                <p>
+                    <b>
+                        <i>
+                            Date of Birth:
+                        </i>
+                    </b>
+                    05 September 1998
+                </p>
+                <p>
+                    <b>
+                        <i>
+                            Location:
+                        </i>
+                    </b>
+                    South Africa Durban
+                </p>
+                <p>
+                    <b>
+                        <i>
+                            Relocation:
+                        </i>
+                    </b>
+                    I am Willing to relocate Immediately
+                </p>
+                <p>
+                    <b>
+                        <i>
+                            Employment:
+                        </i>
+                    </b>
+                    Not employed
+                </p>
+            </div>
+        </div>
+    </div>
+</script>
+
+
+<script id="results-template" type="text/handlebars-template">
+    
+</script>
+
+<script id="skills-template" type="text/handlebars-template">
+
+    <nav>
+        <a id="aboutbutton" href="#/AboutMe">About</a>
+        <a id="homeButt" href="#/">Home</a>
+        <a id="contact" href="#/Contact">Contact</a>
+        <a id="projects" href="#/Projects">Projects</a>
+
+    </nav>
+
+    <div id="my-skills">
+        <div id="tech-skills">
+            <div id="frame1">
+                <div class="info-spacer">
+                    <button class="show-info">
+                        Web development
+                    </button>
+                    <div class="info">
+                        <ol>
+                            <li><b><i>Frontend</i><br></b>HTML,<br> CSS,<br> Bootstrap,</li>
+                            <li><b><i>Library</i><br></b>ReactJs,<br> JQuery</li>
+                            <li><b><i>Backend</i><br></b>Java,<br> Springboot,<br> Thymeleaf</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="info-spacer">
+                    <button class="show-info">
+                        All Tools
+                    </button>
+                    <div class="info">
+                        <ol>
+                            <li><b><i>Docker</i></b></li>
+                            <li><b><i>Linux</i></b></li>
+                            <li><b><i>Git</i></b></li>
+                            <li><b><i>GitHub</i></b></li>
+                            <li><b><i>GitLab</i></b></li>
+                            <li><b><i>GitLab CI/CD</i></b></li>
+                            <li><b><i>Azure basics</i></b></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="info-spacer">
+                    <button class="show-info">
+                        Mobile development
+                    </button>
+                    <div class="info">
+                        <ol>
+                            <li><b><i>Flutter</i></b></li>
+                            <li><b><i>React-Native</i></b></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div id="frame1">
+                <div class="info-spacer">
+                    <button class="show-info">
+                        Systems Intergration
+                    </button>
+                    <div class="info">
+                        <ol>
+                            <li><b><i>ActiveMQ</i></b></li>
+                            <li><b><i>JUnit</i></b></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="info-spacer">
+                    <button class="show-info">
+                        Quality Assurance
+                    </button>
+                    <div class="info">
+                        <ol>
+                            <li><b><i>PyTest</i></b></li>
+                            <li><b><i>JUnit</i></b></li>
+                            <li><b><i>PyUnit</i></b></li>
+                            <li><b><i>Selenium</i></b></li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="info-spacer">
+                    <button class="show-info">
+                        Programming Languages
+                    </button>
+                    <div class="info">
+                        <ol>
+                            <li><b><i>Java</i></b></li>
+                            <li><b><i>JavaScript</i></b></li>
+                            <li><b><i>Dart</i></b></li>
+                            <li><b><i>Python</i></b></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+        <div id="non-tech-skills">
+        </div>
+    </div>
+    
+
+</script>
+
+<script id="antonym-template" type="text/handlebars-template">
+    <h2 id="word">{{word}}</h2>
+    <h2 id="phonetic">{{phonetic}}</h2>
+    <h3>Antonyms</h3>
+    <ol>
+        {{#each antonym}}
+        <li class="related-word">{{this.antonym}}
+            {{/each}}
+    </ol>
+    <div id="results"></div>
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+
+<!-- the vanilla-router library-->
+<script src="https://cdn.jsdelivr.net/npm/vanilla-router@1.2.8/index.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.min.js"></script>
+
+<script src="js/index.js"></script>
+</body>
+
+</html>
