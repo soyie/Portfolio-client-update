@@ -12,27 +12,22 @@
 
 //         document.getElementById('results').innerHTML = `<p>Searching for <em>${word}'</em>...</p>`;
 
-//         fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`, options)
-//             .then(response => response.json())
-//             .then(data => {
-//                 data = {
-//                     word: data[0].word,
-//                     phonetic: data[0].phonetic,
-//                     partOfSpeech: data[0].meanings[0].partOfSpeech,
-//                     definitions: data[0].meanings[0].definitions,
-//                     pronunciation: data[0].phonetics[0].audio,
-//                     partOfSpeechVerb: data[0].meanings[1].partOfSpeech,
-//                     definitionsVerb: data[0].meanings[1].definitions
-//                 };
-//                 const template = document.getElementById('results-template').innerText;
-//                 const compiledFunction = Handlebars.compile(template);
-//                 document.getElementById('results').innerHTML = compiledFunction(data);
-// //                console.log(data.pronunciation)
-// //                console.log(data.example)
-
-
-//             });
-//     });;
+fetch('http://localhost:8080/greeting')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log('Data received:', data);
+    document.getElementById("word").innerHTML = data[0]["name"]
+    document.getElementById("word").innerHTML = '<img src="data:image/png;base64,' + data[0]["image"] + '" alt="image">';
+  })
+  .catch(error => {
+    console.error('Fetch error:', error);
+  });
+//     );;
 // }
 
 // function antonymWord() {
@@ -99,9 +94,23 @@
 // }
 
 
+// Replace 'your-api-endpoint' with the actual endpoint you want to fetch data from
 
+// Using the Fetch API
+fetch('http://localhost:8080/greeting')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log('Data received:', data);
+  })
+  .catch(error => {
+    console.error('Fetch error:', error);
+  });
 
-// tag::router[]
 
 document.addEventListener('DOMContentLoaded', function () {
     const textElement = document.getElementById('animated-text');
@@ -141,7 +150,8 @@ window.addEventListener('load', () => {
   const defaultTemplate = Handlebars.compile($('#app').html());
   const aboutTemplate = Handlebars.compile($('#about-template').html());
   const skillsTemplate = Handlebars.compile($('#skills-template').html());
-  // const antonymTemplate = Handlebars.compile($('#antonym-template').html());
+  const contactTemplate = Handlebars.compile($('#contact-template').html());
+  const projectTemplate = Handlebars.compile($('#projects-template').html());
 
   const router = new Router({
     mode:'hash',
@@ -162,12 +172,15 @@ window.addEventListener('load', () => {
       app.html(html);
     });
 
-  // router.add('/antonym', async () => {
-  //     html = dictionaryTemplate();
-  //     app.html(html);
-  //     antonymWord();
-  //   });
+  router.add('/contantact-me', async () => {
+      html = contactTemplate();
+      app.html(html);
+    });
 
+    router.add('/Projects', async () => {
+      html = projectTemplate();
+      app.html(html);
+    });
 
   router.addUriListener();
 

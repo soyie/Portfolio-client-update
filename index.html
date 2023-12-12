@@ -6,6 +6,10 @@
     <title>Matola Sonwabo</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="icon" href="assets/img/Sonwabo Matola.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -19,7 +23,7 @@
     <nav>
         <a id="aboutbutton" href="#/AboutMe">About</a>
         <a id="myskills" href="#/Skills">Skills</a>
-        <a id="contact" href="#/Contact">Contact</a>
+        <a id="contact" href="#/contantact-me">Contact</a>
         <a id="projects" href="#/Projects">Projects</a>
     
     </nav>
@@ -29,7 +33,7 @@
             <i>Matola Sonwabo</i>
         </h3>
         <div id="welcome">
-            <p>
+            <p style="font-family:'Dancing Script', cursive;">
                 I am a Junior Software Engineer based in South Africa I am also an Azure Cloud Achitect
             </p>
         </div>
@@ -50,15 +54,14 @@
     <nav>
         <a id="homeButt" href="#/">Home</a>
         <a id="myskills" href="#/Skills">Skills</a>
-        <a id="contact" href="#/Contact">Contact</a>
+        <a id="contact" href="#/contantact-me">Contact</a>
         <a id="projects" href="#/Projects">Projects</a>
     
     </nav>
     <div id="about">
-        <p style="color:snow; margin-top: 17px; font-size: 17px;">I am a passionate junior developer seeking opportunities to utilize my skills in your company. I studied Information Technology and Compter Science at King Sabatha Dalindyebo TVET College but soon realized my passion was for software development. Thereafter I decided to join WeThinkCode and studied software engineering, it was challenging but I thoroughly enjoyed the challenge.</p>
         <div id="whoami">
             <div id="image-side">
-                <div id="image">
+                <div id="my-image">
                     <img src="../assets/img/Sonwabo Matola.png" width="100%" height="100%">
                 </div>
             </div>
@@ -144,7 +147,7 @@
     <nav>
         <a id="aboutbutton" href="#/AboutMe">About</a>
         <a id="homeButt" href="#/">Home</a>
-        <a id="contact" href="#/Contact">Contact</a>
+        <a id="contact" href="#/contantact-me">Contact</a>
         <a id="projects" href="#/Projects">Projects</a>
 
     </nav>
@@ -193,7 +196,11 @@
                         </ol>
                     </div>
                 </div>
+                <div id="frame1">
+                    <p style="color:snow; margin-top: 10px; font-size: 20px;">I am a passionate junior developer seeking opportunities to utilize my skills in your company. I studied Information Technology and Compter Science at King Sabatha Dalindyebo TVET College but soon realized my passion was for software development. Thereafter I decided to join WeThinkCode and studied software engineering, it was challenging but I thoroughly enjoyed the challenge.</p>
+                </div>
             </div>
+            
 
             <div id="frame1">
                 <div class="info-spacer">
@@ -235,19 +242,41 @@
                     </div>
                 </div>
             </div>
-
-
-
+            
         </div>
         <div id="non-tech-skills">
         </div>
     </div>
-    
 
 </script>
 
-<script id="antonym-template" type="text/handlebars-template">
-    <h2 id="word">{{word}}</h2>
+<script id="contact-template" type="text/handlebars-template">
+    <nav>
+        <a id="aboutbutton" href="#/AboutMe">About</a>
+        <a id="myskills" href="#/Skills">Skills</a>
+        <a id="homeButt" href="#/">Home</a>
+        <a id="projects" href="#/Projects">Projects</a>
+    </nav>
+
+    <div id="contact-class">
+        <label for="name">Enter your name</label><br>
+        <input type="text" id="name" placeholder="Matola Sonwabo"><br>
+        <label for="email">Enter your email</label><br>
+        <input type="email" id="email" placeholder="sonmatol021@student.wethinkcode.co.za"><br>
+        <label for="message">Enter your message</label><br>
+        <textarea name="message" rows="20" cols="65" placeholder="Message" id="message"></textarea><br>
+        <a class="send" href="#">Send</a>
+    </div>
+
+</script>
+
+<script id="projects-template" type="text/handlebars-template">
+
+    <div id="project">
+        <h2 id="word"></h2>
+
+    </div>
+<!--     
     <h2 id="phonetic">{{phonetic}}</h2>
     <h3>Antonyms</h3>
     <ol>
@@ -255,7 +284,7 @@
         <li class="related-word">{{this.antonym}}
             {{/each}}
     </ol>
-    <div id="results"></div>
+    <div id="results"></div> -->
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
