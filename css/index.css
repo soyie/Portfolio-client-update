@@ -8,8 +8,14 @@ body{
   
 }
 #app {
-    height: 90vh;
+    /* height: 90vh; */
     max-width: 100%;
+}
+
+.image{
+  display: none;
+  height: 0;
+  width: 0;
 }
 
 #app h3{
@@ -22,9 +28,11 @@ body{
 
 }
 
+
 nav{
+  padding-bottom: 23px;
   /* top: 40px; */
-  height: 7%;
+  /* height: 7%; */
   margin: 23px 0 0 0;
   padding: 0;
   text-align:left;
@@ -35,13 +43,13 @@ nav{
 #home, #my-skills{
     margin: 0;
     padding: 0;
-    background-color: rgba(0, 0, 0, 0.4);
+    /* background-color: rgba(0, 0, 0, 0.4); */
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
 }
 
 .text-container {
-    top: 150px;
+    top: 30px;
     text-align: center;
     margin-top: 0;
   }
@@ -81,7 +89,7 @@ nav{
 
 
 nav a{
-  top: 23px;
+  top: 13px;
   margin:18px 0 0 0;
   padding: 10px 19px;
   background-color: cadetblue;
@@ -94,29 +102,47 @@ nav a{
 #welcome p{
   color: snow;
   font-size: 30px;
+  margin: 50px 0 0 50px;
 }
 
 #welcome{
-  top: 165px;
+  /* top: 65px; */
   right: 0;
-  width: 280px;
-  height: 150px;
+  width: 380px;
+  /* height: 50px; */
   background-color: transparent;
 }
 
-#about, #my-skills{
+#about-me, 
+#home-page, 
+#main-contact{
+  margin-top: 0;
+  padding-top: 12px;
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 100vh;
+  width: 100%;
+
+}
+#my-skills-list{
+  margin-top: 0;
+  padding-top: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 125vh;
+  width: 100%;
+}
+/* #about, #my-skills{
   margin: 0;
   padding: 0;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.4);
   height: 100%;
-}
+} */
 
 #about h3{
     position: relative;
-    top: 50px;
+    /* top: 30px; */
     right: 0;
-    padding: 0 60px 20px 30px;
+    padding: 0 60px 0px 30px;
     color: white;
     font-size: 50px;
 }
@@ -127,7 +153,7 @@ nav a{
 }
 #image-side{
   flex: 1;
-  height: 100%;
+  /* height: 100%; */
 }
 
 #inform{
@@ -146,7 +172,6 @@ nav a{
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
 }
 
 #my-image {
@@ -154,7 +179,7 @@ nav a{
   margin-left: 150px;
   margin-top: 70px;
   width: 250px;
-  height: 250px;
+  height: 200px;
   overflow: hidden;
   position: absolute;
   animation: changing 3s linear infinite;
@@ -178,7 +203,6 @@ nav a{
   margin-right: 5px;
 }
 .show-info{
-  height: 43px;
   width: 280px;
   color:azure;
   font-weight: 600;
@@ -189,45 +213,286 @@ nav a{
   width: 280px;
   padding: 30px 0 30px 0;
   color: snow;
-  /* background: #427ae073; */
   margin-bottom: 15px;
 }
 #frame1{
   display: flex;
   padding: 12px;
-  margin: 12px;
+  margin: 20px 10px;
+  
 }
 
 .info-spacer{
   margin-left: 12px;
 }
 
+/* #whoami{
+  
+} */
+
 #contact-class{
   margin: 0;
   padding: 5% 0 0 34%;
-  background-color: rgba(0, 0, 0, 0.4);
   width: 66%;
-  height: 78vh;
+  /* height: 78vh; */
 }
 
 #contact-class input{
-  width: 290px;
-  height: 25px;
-  margin-bottom: 12px;
+  width: 300px;
+  height: 30px;
+  margin-bottom: 10px;
 }
+
+
 #contact-class label {
   color: snow;
-  font-size: larger;
+  font-size: x-larger;
 }
 
-#contact-class {
-  max-width: 400px;
+/* #contact-class {
+  max-width: 100%;
   margin: 0 auto;
+  height: 100vh;
+} */
+
+#main-contact .send{
+  align-self: center;
+  top: 53px;
+  border-radius: 25px;
+  margin:45px 0 0 0;
+  padding: 23px 95px;
+  background-color: cadetblue;
+  margin: 22px;
+  color: snow;
+  text-decoration: none;
 }
 
-.car {
-  display: inline-block;
-  font-size: 20px;
-  margin-left: 10px;
-  transition: margin-left 1s ease-out;
+#message{
+  margin-bottom: 26px;
 }
+
+
+#passion{
+  color:snow; 
+  margin-top: 10px; 
+  font-size: 20px;
+}
+@media only screen and (max-width: 720px) {
+
+  #inform h2{
+    font-size: large;
+  }
+
+
+  #welcome{
+    margin: 35px 0 0 0;
+  }
+  #welcome p{
+    font-size: 23px;
+    color: antiquewhite;
+    margin: 75px 0 15px 0;
+    overflow: visible;
+
+  }
+
+  #myName h3 i{
+    font-size: x-large;
+    margin-top: 45px;
+  }
+  #myName h3{
+    align-self: center;
+    margin-top: 145px;
+  }
+
+  nav a{
+    top: 7px;
+    font-size: small;
+    margin:10px 0 0 0;
+    padding: 6px 11px;
+    background-color: rgba(0, 0, 0, 0.8);
+    margin: 7px;
+    color: snow;
+    text-decoration: none;
+    border-radius: 6px;
+  }
+
+  .image-outside{
+    display: none;
+    height: 0;
+    width: 0;
+  }
+  .image{
+    display: inline;
+    height: 100%;
+    width: 100%;
+  }
+
+  #my-image{
+    background: snow;
+    margin-left: 90px;
+    margin-top: 15px;
+    width: 200px;
+    height: 150px;
+    overflow: hidden;
+    position: absolute;
+    animation: changing 3s linear infinite;
+  }
+
+
+  #animated-text {
+    position: relative;
+    top:0;
+    right: 0;
+    padding: 90px 30px;
+    color: white;
+    font-size: 25px;
+    color: snow;
+    display: inline-block;
+    overflow: hidden;
+    border-right: 2px solid #000; /* Adjust the color and thickness of the "cursor" */
+    white-space: nowrap;
+    animation: typing 2s steps(20, end), blink-caret 0.75s step-end infinite;
+  }
+
+  #inform p b i {
+    font-size: 12px;
+    font-weight: 700;
+    margin-right: 3px;
+  }
+  
+  #inform {
+    padding-top: 135px;
+    margin-top: 135px;
+    font-size: 15px;
+  }
+
+  #inform p {
+    font-size: 15px;
+  }
+
+  #whoami {
+    margin-top: 12px;
+    width: 100%;
+    height: 100vh;
+
+    }
+
+  #image-side {
+      display: none;
+      width: 0;
+      height: 0;
+      flex: 0;
+  }
+
+  #inform {
+      margin: 45px 15px 12px 15px;
+  }
+  #about{
+    margin: 0;
+    padding: 0;
+    display: auto;
+  }
+  #frame1{
+    display: inline-block;
+    padding: 12px;
+    margin: 20px 10px;
+    
+  }
+  #passion{
+    color:snow; 
+    margin-top: 1px; 
+    font-size: 12px;
+  }
+  #my-skills-list{
+    overflow-y: scroll;
+  }
+  .show-info{
+    width: 200px;
+    color:azure;
+    font-weight: 500;
+    font-size: 18px;
+    background: linear-gradient(to bottom right, #34f534, #3dc2e4, #6f43a8);;
+  }
+  .info{
+    /* width: 200px; */
+    margin: 10px 8px 15px 8px;
+    padding: 20px 0 20px 0;
+    color: snow;
+    margin-bottom: 10px;
+  }
+  .info ol li {
+    font-size: 15px;
+  }
+
+  #contact-class{
+    margin: 0;
+    padding: 15% 0 0 9%;
+    width: 100%;
+    /* height: 78vh; */
+  }
+  
+  #contact-class input{
+    width: 250px;
+    height: 20px;
+    margin-bottom: 5px;
+  }
+  
+  
+  #contact-class label {
+    color: snow;
+    font-size: 15px;
+  }
+  #message{
+    margin-bottom: 25px;
+    width: 70%;
+
+  }
+
+  #main-contact .send{
+    align-self: center;
+    top: 33px;
+    border-radius: 15px;
+    margin: 60px 0 0 0;
+    padding: 15px 65px;
+    background-color: cadetblue;
+    margin: 32px;
+    color: snow;
+    text-decoration: none;
+  }
+}
+
+
+/* @media only screen and (max-width: 720px) {
+  nav{
+    height: 0;
+    display: none;
+    height: 100vh;
+    width: 0;
+    z-index: 15;
+    background-color: #6f43a8;
+  }
+
+  #navigator{
+    margin: 15px 0 34px 15px;
+    cursor: pointer;
+
+  }
+  #home h3 i {
+    font-size: 25px;
+
+  }
+  #welcome p{
+    height: 250px;
+    margin: 63px 0 0 0;
+
+  }
+
+  #nav1, #nav2 ,#nav3{
+    width: 35px;
+    height: 5px;
+    background-color: #000;
+    margin: 6px 0;
+  }
+
+
+} */

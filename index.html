@@ -6,6 +6,7 @@
     <title>Matola Sonwabo</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="assets/img/Sonwabo Matola.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,29 +21,35 @@
      We can use this to capture the change in the location and swap out parts as we want.  -->
 
 <div id="app">
-    <nav>
-        <a id="aboutbutton" href="#/AboutMe">About</a>
-        <a id="myskills" href="#/Skills">Skills</a>
-        <a id="contact" href="#/contantact-me">Contact</a>
-        <a id="projects" href="#/Projects">Projects</a>
-    
-    </nav>
-    
-    <div id="home">
-        <h3>
-            <i>Matola Sonwabo</i>
-        </h3>
-        <div id="welcome">
-            <p style="font-family:'Dancing Script', cursive;">
-                I am a Junior Software Engineer based in South Africa I am also an Azure Cloud Achitect
-            </p>
-        </div>
-        
-        <div class="text-container">
-            <p id="animated-text"></p>
-          </div>
-    </div>
+    <div id="home-page">
+        <nav id="navig">
+            <a id="aboutbutton" href="#/AboutMe">About</a>
+            <a id="myskills" href="#/Skills">Skills</a>
+            <a id="contact" href="#/contantact-me">Contact</a>
+            <a id="projects" href="#/Projects">Projects</a>
+        </nav>
 
+        <div id="home">
+
+            <div id="welcome">
+                <p style="font-family:'Dancing Script', cursive;">
+                    I am a Junior Software Engineer based in South Africa I am also an Azure Cloud Achitect
+                </p>
+            </div>
+
+            <div id="myName">
+                <h3>
+                    <i>Matola Sonwabo</i>
+                </h3>
+            </div>
+            
+
+            <div class="text-container">
+                <p id="animated-text"></p>
+            </div>
+        </div>
+    
+    </div>
 </div>
 
 <!-- <script id="default-template" type="text/handlebars-template">
@@ -51,87 +58,96 @@
 </script> -->
 
 <script id="about-template" type="text/handlebars-template">
-    <nav>
-        <a id="homeButt" href="#/">Home</a>
-        <a id="myskills" href="#/Skills">Skills</a>
-        <a id="contact" href="#/contantact-me">Contact</a>
-        <a id="projects" href="#/Projects">Projects</a>
-    
-    </nav>
-    <div id="about">
-        <div id="whoami">
-            <div id="image-side">
-                <div id="my-image">
+    <div id="about-me">
+        <nav>
+            <a id="homeButt" href="#/">Home</a>
+            <a id="myskills" href="#/Skills">Skills</a>
+            <a id="contact" href="#/contantact-me">Contact</a>
+            <a id="projects" href="#/Projects">Projects</a>
+        
+        </nav>
+        
+        <div id="about">
+            <div id="whoami">
+                <div id="image-side">
+                    <div id="my-image" class="image-outside">
+                        <img src="../assets/img/Sonwabo Matola.png" width="100%" height="100%">
+                    </div>
+                </div>
+
+                <div id="my-image" class="image">
                     <img src="../assets/img/Sonwabo Matola.png" width="100%" height="100%">
                 </div>
-            </div>
-            <div id="inform">
-                <h2><i>Software Engineer / Cloud Architect</i></h2>
-                <p>Basic information about Matola Sonwabo</p>
-                <p>
-                    <b>
-                        <i>
-                            Qualification:
-                        </i>
-                    </b>
-                    NQF Level 5 Software engineering
-                </p>
-                <p>
-                    <b>
-                        <i>
-                            Qualification:
-                        </i>
-                    </b>
-                    Cloud Architect
-                </p>
-                <p href="email:sonmatol021@student.wethinkcode.co.za">
-                    <b>
-                        <i>
-                            Email:
-                        </i>
-                    </b>
-                    sonmatol021@student.wethinkcode.co.za
-                </p>
-                <p phone="+27780806876">
-                    <b>
-                        <i>
-                            Phone:
-                        </i>
-                    </b>
-                    +27-780 806 876
-                </p>
-                <p>
-                    <b>
-                        <i>
-                            Date of Birth:
-                        </i>
-                    </b>
-                    05 September 1998
-                </p>
-                <p>
-                    <b>
-                        <i>
-                            Location:
-                        </i>
-                    </b>
-                    South Africa Durban
-                </p>
-                <p>
-                    <b>
-                        <i>
-                            Relocation:
-                        </i>
-                    </b>
-                    I am Willing to relocate Immediately
-                </p>
-                <p>
-                    <b>
-                        <i>
-                            Employment:
-                        </i>
-                    </b>
-                    Not employed
-                </p>
+                <div id="inform">
+                    
+                    <h2><i>Software Engineer / Cloud Architect</i></h2>
+
+                    <p>Basic information about Matola Sonwabo</p>
+                    <p>
+                        <b>
+                            <i>
+                                Qualification:
+                            </i>
+                        </b>
+                        NQF Level 5 Software engineering
+                    </p>
+                    <p>
+                        <b>
+                            <i>
+                                Qualification:
+                            </i>
+                        </b>
+                        Cloud Architect
+                    </p>
+                    <p href="email:sonmatol021@student.wethinkcode.co.za">
+                        <b>
+                            <i>
+                                Email:
+                            </i>
+                        </b>
+                        sonmatol021@student.wethinkcode.co.za
+                    </p>
+                    <p phone="+27780806876">
+                        <b>
+                            <i>
+                                Phone:
+                            </i>
+                        </b>
+                        +27-780 806 876
+                    </p>
+                    <p>
+                        <b>
+                            <i>
+                                Date of Birth:
+                            </i>
+                        </b>
+                        05 September 1998
+                    </p>
+                    <p>
+                        <b>
+                            <i>
+                                Location:
+                            </i>
+                        </b>
+                        South Africa Durban
+                    </p>
+                    <p>
+                        <b>
+                            <i>
+                                Relocation:
+                            </i>
+                        </b>
+                        I am Willing to relocate Immediately
+                    </p>
+                    <p>
+                        <b>
+                            <i>
+                                Employment:
+                            </i>
+                        </b>
+                        Not employed
+                    </p>
+                </div>
             </div>
         </div>
     </div>
@@ -139,22 +155,22 @@
 
 
 <script id="results-template" type="text/handlebars-template">
-    
+
 </script>
 
 <script id="skills-template" type="text/handlebars-template">
-
-    <nav>
-        <a id="aboutbutton" href="#/AboutMe">About</a>
-        <a id="homeButt" href="#/">Home</a>
-        <a id="contact" href="#/contantact-me">Contact</a>
-        <a id="projects" href="#/Projects">Projects</a>
-
-    </nav>
-
-    <div id="my-skills">
-        <div id="tech-skills">
+    <div id="my-skills-list">
+            <nav>
+                <a id="aboutbutton" href="#/AboutMe">About</a>
+                <a id="homeButt" href="#/">Home</a>
+                <a id="contact" href="#/contantact-me">Contact</a>
+                <a id="projects" href="#/Projects">Projects</a>
+        
+            </nav>
             <div id="frame1">
+                <div id="frame1">
+                    <p id="passion">I am a passionate junior developer seeking opportunities to utilize my skills in your company. I studied Information Technology and Compter Science at King Sabatha Dalindyebo TVET College but soon realized my passion was for software development. Thereafter I decided to join WeThinkCode and studied software engineering, it was challenging but I thoroughly enjoyed the challenge.</p>
+                </div>
                 <div class="info-spacer">
                     <button class="show-info">
                         Web development
@@ -196,9 +212,7 @@
                         </ol>
                     </div>
                 </div>
-                <div id="frame1">
-                    <p style="color:snow; margin-top: 10px; font-size: 20px;">I am a passionate junior developer seeking opportunities to utilize my skills in your company. I studied Information Technology and Compter Science at King Sabatha Dalindyebo TVET College but soon realized my passion was for software development. Thereafter I decided to join WeThinkCode and studied software engineering, it was challenging but I thoroughly enjoyed the challenge.</p>
-                </div>
+                
             </div>
             
 
@@ -242,30 +256,28 @@
                     </div>
                 </div>
             </div>
-            
         </div>
-        <div id="non-tech-skills">
-        </div>
-    </div>
 
 </script>
 
 <script id="contact-template" type="text/handlebars-template">
-    <nav>
-        <a id="aboutbutton" href="#/AboutMe">About</a>
-        <a id="myskills" href="#/Skills">Skills</a>
-        <a id="homeButt" href="#/">Home</a>
-        <a id="projects" href="#/Projects">Projects</a>
-    </nav>
-
-    <div id="contact-class">
-        <label for="name">Enter your name</label><br>
-        <input type="text" id="name" placeholder="Matola Sonwabo"><br>
-        <label for="email">Enter your email</label><br>
-        <input type="email" id="email" placeholder="sonmatol021@student.wethinkcode.co.za"><br>
-        <label for="message">Enter your message</label><br>
-        <textarea name="message" rows="20" cols="65" placeholder="Message" id="message"></textarea><br>
-        <a class="send" href="#">Send</a>
+    <div id="main-contact">
+        <nav>
+            <a id="aboutbutton" href="#/AboutMe">About</a>
+            <a id="myskills" href="#/Skills">Skills</a>
+            <a id="homeButt" href="#/">Home</a>
+            <a id="projects" href="#/Projects">Projects</a>
+        </nav>
+    
+        <div id="contact-class">
+            <label for="name">Enter your name</label><br>
+            <input type="text" id="name" placeholder="Matola Sonwabo"><br>
+            <label for="email">Enter your email</label><br>
+            <input type="email" id="email" placeholder="sonmatol021@student.wethinkcode.co.za"><br>
+            <label for="message">Enter your message</label><br>
+            <textarea name="message" rows="15" cols="50" placeholder="Message" id="message"></textarea><br>
+            <a class="send" href="#/contantact-me" onclick="SendMessage()">Send</a>
+        </div>
     </div>
 
 </script>
