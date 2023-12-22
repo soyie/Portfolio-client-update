@@ -1,4 +1,88 @@
-fetch('http://localhost:8080/greeting')
+Allprojects = []
+
+function showProjectSmallDet(){
+  console.log(Allprojects)
+  console.log(Allprojects.length)
+  Allprojects.forEach(project => {
+    document.getElementById("my-projects").innerHTML += `
+    <div id="project-detail">
+      <img src='data:image/png;base64, ${project["image"]}' width='120px' height='120px'>
+      <p>Name ${ "  "+project["name"]}</p>
+      <p>Type ${ "  "+project["type"]}</p>
+    </div>
+    `
+    
+  });
+}
+
+function projectInfo(projects){
+  var screenWidth = window.innerWidth;
+  console.log(screenWidth)
+  if (screenWidth > 720){
+    if (document.getElementById("each-project").style.width == "200px"){
+      document.getElementById("each-project").style.width = "550px";
+      document.getElementById("each-project").style.height = "450px";
+
+      document.getElementById("each-project").innerHTML =
+      `<div id='project-data'>
+        <div id="short-side">
+            <img src="${projects.project_cover}" alt="${projects.name}" width="120px" height="150px">
+            <p>name: <h4>${projects.name}</h4></p>
+            <p>Type: <p>${projects.type}</p></p>
+        </div>
+        <div id="descript">
+            <h4>Description</h4><br>
+            <p>${projects.project_description}</p>
+            <a href="#/Projects" onclick="projectInfo()">Less</a>
+        </div>
+      </div>`;
+      console.log(projects.type)
+
+      document.getElementById("project-data").style.display = "flex";
+      document.getElementById("short-side").style.flex = 1;
+      document.getElementById("descript").style.flex = 1;
+      document.getElementById("project-data").style.zIndex = 1;
+
+
+    }
+    else{
+      document.getElementById("each-project").style.width = "200px";
+      document.getElementById("each-project").innerHTML =
+      `<div id='project-data'>
+        <img src="${projects.project_cover}" alt="${projects.name}" width="120px" height="150px">
+        <p>name: <h4>${projects.project_name}</h4></p>
+        <p>Type: <p>${projects.project_type}</p></p>
+        <a href="#/Projects" onclick="projectInfo()">More</a>
+      </div>`;
+    }
+  }
+  else if (screenWidth <= 720){
+    if (document.getElementById("each-project").style.height == "350px"){
+      document.getElementById("each-project").style.height = "500px";
+      document.getElementById("each-project").innerHTML =
+      `<div id='project-data'>
+        <img src="${projects.project_cover}" alt="${projects.name}" width="120px" height="150px">
+        <p>name: <h4>${projects.project_name}</h4></p>
+        <p>Type: <p>${projects.project_type}</p></p>
+        <h4>Description</h4><br>
+        <p>${projects.project_description}</p>
+        <a href="#/Projects" onclick="projectInfo()">Less</a>
+      </div>`;
+    }
+    else{
+      document.getElementById("each-project").style.height = "350px";
+      document.getElementById("each-project").innerHTML =
+      `<div id='project-data'>
+        <img src="${projects.project_cover}" alt="${projects.name}" width="120px" height="150px">
+        <p>name: <h4>${projects.project_name}</h4></p>
+        <p>Type: <p>${projects.project_type}</p></p>
+        <a href="#/Projects" onclick="projectInfo()">More</a>
+      </div>`;
+    }
+  }
+}
+
+fetch('http://localhost:8080/allApps')
   .then(response => {
     if (!response.ok) {
       document.getElementById("word").innerHTML = '<p>Something went Wrong</p>';
@@ -7,21 +91,75 @@ fetch('http://localhost:8080/greeting')
   })
   .then(data => {
     console.log('Data received:', data);
-    data.forEach(user => {
-      const userDiv = document.createElement("div");
-      document.getElementById("project").innerHTML = '<img src="data:image/png;base64,${user.image}" alt="${user.name}" width="100">'
-      console.log(user["image"])
+    Allprojects = data;
 
+//     Try putting this HTML snippet into your served document:
+// <img id="ItemPreview" src="">
+// Then, on JavaScript side, you can dynamically modify image's src attribute with so-called
+// Data URL (https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIS).
+// document.getElementById("ItemPreview").src = "data:image/png;base64," +
+// yourByteArrayAsBase64;
+// Alternatively, using jQuery:
+// $('#ItemPreview').attr('src', 'data:image/png;base64,${yourByteArrayAsBase64}`);
+// This assumes that your image is stored in PNG format, which is quite popular. If you use
+// some other image format (e.g. JPEG), modify the MIME type (
+// Answer Sheet: 1/2
+    // data.forEach(image => {
       
+      // var img = new Image();
+      // img.src = 
+      // document.body.appendChild(img);
+    // }
+    // )
+    // console.log(data[0]["name"])
+    // console.log(data[0]["type"])
+    // console.log(data[0]["testLink"])
+    // console.log(data[0]["gitHub"])
+    // console.log(data[0]["description"])
+    // // console.log(data[0]["id"])
+    // console.log(data[0]["uuid"])
+    // console.log(data[0]["image"])
+    // console.log("../img/code.jpg")
+    // console.log(data[0]["imageList"].length)
 
-    })
-    // document.getElementById("project").innerHTML = '<img src="data:image/png;base64,' + data[0]["image"] + '" alt="image">';
+    // var blob = new Blob([data[0]["image"]]);
+    // var imageUrl = URL.createObjectURL(blob);
+    // var imageElement = new Image();
+    // imageElement.src = imageUrl;
+    // const uint8Array = new Uint8Array(data[0]["image"]);
+    // const blob = new Blob([uint8Array], { type: 'image/jpeg' });
+    // const imageUrl = URL.createObjectURL(blob);
+    // const imageElement = document.createElement('img');
+    // imageElement.src = imageUrl;
+    // document.body.appendChild(imageElement);
+
+
+    // document.getElementById("my-projects").innerHTML = imageElement
+
+    // document.body.appendChild(imageElement);
+
+    // var byteArray = Uint8Array.from(atob(data[0]["image"]), c => c.charCodeAt(0));
+    // var blob = new Blob(byteArray, { type: 'image/jpg' })
+    // var imageUrl = URL.createObjectURL(blob);
+    // var image = new Image();
+    // image.src = imageUrl;
+    // document.getElementById("my-projects").innerHTML = `<img src='${imageUrl}' width='120px' height='120px'>`
+    // console.log(imageUrl.type)
+    // console.log(imageUrl.type())
+  //   data.forEach(user => 
+  //     projectInfo(user))
+
   })
+  // })
   .catch(error => {
     console.error('Fetch error:', error);
   });
 
-document.addEventListener('DOMContentLoaded', function () {
+
+
+
+
+function getProjects() {
     const textElement = document.getElementById('animated-text');
     const wordsToAnimate = ['Software Engineering', 'Cloud Architecture', 'Quality Assurance', 'Azure DevOps Engineer'];
   
@@ -50,7 +188,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   
     typeWriter(0); // Start with the first word
-  });
+  };
 
 
 function SendMessage(){
@@ -72,6 +210,7 @@ window.addEventListener('load', () => {
     page404: (path) => {
       const html = defaultTemplate();
       app.html(html);
+      getProjects();
     }
   });
 
@@ -93,6 +232,11 @@ window.addEventListener('load', () => {
     router.add('/Projects', async () => {
       html = projectTemplate();
       app.html(html);
+      showProjectSmallDet();
+      // document.getElementById("my-projects").innerHTML = `hello server`;
+      // document.getElementById("my-projects").innerHTML = `<img src='data:image/png;base64, ${Allprojects[1]["image"]}' width='120px' height='120px'>`;
+      console.warn(Allprojects);
+      // ShowProjects();
     });
 
   router.addUriListener();

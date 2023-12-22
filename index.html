@@ -283,20 +283,22 @@
 </script>
 
 <script id="projects-template" type="text/handlebars-template">
+    <div id="about-me">
+        <nav>
+            <a id="aboutbutton" href="#/AboutMe">About</a>
+            <a id="myskills" href="#/Skills">Skills</a>
+            <a id="contact" href="#/contantact-me">Contact</a>
+            <a id="homeButt" href="#/">Home</a>
 
-    <div id="project">
-        <h2 id="word"></h2>
+        </nav>
 
+        <div id="about">
+            <div id="whoami">
+                <div id="my-projects">
+                </div>
+            </div>
+        </div>
     </div>
-<!--     
-    <h2 id="phonetic">{{phonetic}}</h2>
-    <h3>Antonyms</h3>
-    <ol>
-        {{#each antonym}}
-        <li class="related-word">{{this.antonym}}
-            {{/each}}
-    </ol>
-    <div id="results"></div> -->
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
