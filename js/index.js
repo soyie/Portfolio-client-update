@@ -7,35 +7,24 @@ function showProjectSmallDet(){
     document.getElementById("my-projects").innerHTML += `
     <div id="project-detail">
       <img src='data:image/png;base64, ${project["image"]}' width='120px' height='120px'>
-      <p>Name ${ "  "+project["name"]}</p>
-      <p>Type ${ "  "+project["type"]}</p>
+      <p>Name: ${ "  "+project["name"]}</p>
+      <p>Type: ${ "  "+project["type"]}</p>
+      <p>Github: ${ "  "+project["gitHub"]}</p>
+      <p>Link: ${ "  "+project["testLink"]}</p>
+      <a href="#/Projects/${project["uuid"]}">More</a>
     </div>
     `
-    
   });
 }
 
-function projectInfo(projects){
+function projectInfo(){
   var screenWidth = window.innerWidth;
   console.log(screenWidth)
   if (screenWidth > 720){
-    if (document.getElementById("each-project").style.width == "200px"){
-      document.getElementById("each-project").style.width = "550px";
-      document.getElementById("each-project").style.height = "450px";
+    if (document.getElementById("project-detail").style.width == "200px"){
+      document.getElementById("project-detail").style.width = "550px";
+      document.getElementById("project-detail").style.height = "450px";
 
-      document.getElementById("each-project").innerHTML =
-      `<div id='project-data'>
-        <div id="short-side">
-            <img src="${projects.project_cover}" alt="${projects.name}" width="120px" height="150px">
-            <p>name: <h4>${projects.name}</h4></p>
-            <p>Type: <p>${projects.type}</p></p>
-        </div>
-        <div id="descript">
-            <h4>Description</h4><br>
-            <p>${projects.project_description}</p>
-            <a href="#/Projects" onclick="projectInfo()">Less</a>
-        </div>
-      </div>`;
       console.log(projects.type)
 
       document.getElementById("project-data").style.display = "flex";
@@ -46,38 +35,15 @@ function projectInfo(projects){
 
     }
     else{
-      document.getElementById("each-project").style.width = "200px";
-      document.getElementById("each-project").innerHTML =
-      `<div id='project-data'>
-        <img src="${projects.project_cover}" alt="${projects.name}" width="120px" height="150px">
-        <p>name: <h4>${projects.project_name}</h4></p>
-        <p>Type: <p>${projects.project_type}</p></p>
-        <a href="#/Projects" onclick="projectInfo()">More</a>
-      </div>`;
+      document.getElementById("project-detail").style.width = "200px";
     }
   }
   else if (screenWidth <= 720){
-    if (document.getElementById("each-project").style.height == "350px"){
-      document.getElementById("each-project").style.height = "500px";
-      document.getElementById("each-project").innerHTML =
-      `<div id='project-data'>
-        <img src="${projects.project_cover}" alt="${projects.name}" width="120px" height="150px">
-        <p>name: <h4>${projects.project_name}</h4></p>
-        <p>Type: <p>${projects.project_type}</p></p>
-        <h4>Description</h4><br>
-        <p>${projects.project_description}</p>
-        <a href="#/Projects" onclick="projectInfo()">Less</a>
-      </div>`;
+    if (document.getElementById("project-detail").style.height == "350px"){
+      document.getElementById("project-detail").style.height = "500px";
     }
     else{
-      document.getElementById("each-project").style.height = "350px";
-      document.getElementById("each-project").innerHTML =
-      `<div id='project-data'>
-        <img src="${projects.project_cover}" alt="${projects.name}" width="120px" height="150px">
-        <p>name: <h4>${projects.project_name}</h4></p>
-        <p>Type: <p>${projects.project_type}</p></p>
-        <a href="#/Projects" onclick="projectInfo()">More</a>
-      </div>`;
+      document.getElementById("project-detail").style.height = "350px";
     }
   }
 }
@@ -156,6 +122,10 @@ fetch('http://localhost:8080/allApps')
   });
 
 
+  function ChooseProject(choiceIndex){
+    console.log(choiceIndex)
+  }
+
 
 
 
@@ -203,6 +173,7 @@ window.addEventListener('load', () => {
   const skillsTemplate = Handlebars.compile($('#skills-template').html());
   const contactTemplate = Handlebars.compile($('#contact-template').html());
   const projectTemplate = Handlebars.compile($('#projects-template').html());
+  const projectInfoTemplate = Handlebars.compile($('#projects-info-template').html());
 
   const router = new Router({
     mode:'hash',
@@ -233,10 +204,22 @@ window.addEventListener('load', () => {
       html = projectTemplate();
       app.html(html);
       showProjectSmallDet();
-      // document.getElementById("my-projects").innerHTML = `hello server`;
-      // document.getElementById("my-projects").innerHTML = `<img src='data:image/png;base64, ${Allprojects[1]["image"]}' width='120px' height='120px'>`;
-      console.warn(Allprojects);
-      // ShowProjects();
+    });
+
+    router.add('/Projects', async () => {
+      html = projectTemplate();
+      app.html(html);
+      showProjectSmallDet();
+    });
+
+    router.add('/Projects/{uuid}', async () => {
+      html = projectInfoTemplate();
+      app.html(html);
+      console.log(await router.getRoute());
+      const currentRoute = router.getRoute(); // Get the current route
+      const parts = currentRoute.split('/');  // Split the route into parts
+      const choiceIndex = parts;
+      ChooseProject(router.getRoute());
     });
 
   router.addUriListener();
