@@ -1,4 +1,5 @@
 Allprojects = []
+descr = ''
 
 function getProjects() {
   const textElement = document.getElementById('animated-text');
@@ -34,8 +35,6 @@ function getProjects() {
 getProjects();
 
 function showProjectSmallDet(){
-  console.log(Allprojects)
-  console.log(Allprojects.length)
   Allprojects.forEach(project => {
     document.getElementById("my-projects").innerHTML += `
     <div id="project-detail">
@@ -43,31 +42,44 @@ function showProjectSmallDet(){
       <p>Name: ${ "  "+project["name"]}</p>
       <p>Type: ${ "  "+project["type"]}</p>
       <p>Github: ${ "  "+project["gitHub"]}</p>
-      <p>Link: ${ "  "+project["testLink"]}</p>
-      <a href="#/Projects/${project["uuid"]}">More</a>
+      <p>Link: ${ "  "+project["link"]}</p>
+      <a href="#/Projects/${project["projectUID"]}">More</a>
     </div>
     `
   });
 }
 
+{}
+
 function findOneProject(uuid){
+
   Allprojects.forEach(project => {
-   if (project.uuid == uuid){
-    console.log(project)
+   if (project.projectUID == uuid){
+    document.getElementById("first-side").innerHTML = `
+    <img src='data:image/png;base64, ${project["image"]}' width='220px' height='220px'>
+    <p>Name: ${ "  "+project["name"]}</p>
+    <p>Type: ${ "  "+project["type"]}</p>
+    <p>Github: ${ "  "+project["gitHub"]}</p>
+    <p>Link: ${ "  "+project["link"]}</p>
+    `
     
+    document.getElementById("second-side").innerHTML = `
+    <p>${project["description"].replace(/\./g, (match, offset) => (offset % 3 === 2 ? ".<br><br>" : ".<br>"))}</p>
+    <img src='data:image/png;base64, ${project["screen1"]}' width='220px' height='220px'>
+    <img src='data:image/png;base64, ${project["screen2"]}' width='220px' height='220px'>
+    <img src='data:image/png;base64, ${project["screen3"]}' width='220px' height='220px'>
+`
    }
   });
 }
 
 function projectInfo(){
   var screenWidth = window.innerWidth;
-  console.log(screenWidth)
   if (screenWidth > 720){
     if (document.getElementById("project-detail").style.width == "200px"){
       document.getElementById("project-detail").style.width = "550px";
       document.getElementById("project-detail").style.height = "450px";
 
-      console.log(projects.type)
 
       document.getElementById("project-data").style.display = "flex";
       document.getElementById("short-side").style.flex = 1;
@@ -90,7 +102,7 @@ function projectInfo(){
   }
 }
 
-fetch('http://localhost:8080/allApps')
+fetch('http://192.168.243.66:8080/allApps')
   .then(response => {
     if (!response.ok) {
       document.getElementById("word").innerHTML = '<p>Something went Wrong</p>';
@@ -98,26 +110,42 @@ fetch('http://localhost:8080/allApps')
     return response.json();
   })
   .then(data => {
-    console.log('Data received:', data);
     Allprojects = data;
 
   })
   // })
   .catch(error => {
     console.error('Fetch error:', error);
+    document.getElementById("word").innerHTML = '<p>Error Occured</p>';
   });
 
 
-  function ChooseProject(choiceIndex){
-    console.log(choiceIndex)
-  }
-
-
-
-
-
 function SendMessage(){
-  alert("Button pressed")
+  const data = {
+    sender: document.getElementById("name").value,
+    senderEmail: document.getElementById("email").value,
+    message: document.getElementById("message").value
+  };
+  const requestOptions = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  };
+  fetch(`http://192.168.243.66:8080/SendMessage`, requestOptions)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log('Response data:', data);
+    })
+    .catch(error => {
+      console.error('Fetch error:', error);
+    });
 }
 function showSkills(skillsSet){
   showMeSkill = document.getElementById("ShowSkill");
@@ -225,7 +253,6 @@ function showSkills(skillsSet){
 
 function closeTools(){
   showMeSkill = document.getElementById("ShowSkill");
-  console.log("closed");
   showMeSkill.style.display = "none"
 }
 
@@ -275,10 +302,9 @@ window.addEventListener('load', () => {
       showProjectSmallDet();
     });
 
-    router.add('/Projects/{uuid}', async () => {
+    router.add('/Projects/{projectUID}', async () => {
       html = projectInfoTemplate();
       app.html(html);
-      console.log(window.location.hash.split("/")[2]);
       findOneProject(window.location.hash.split("/")[2])
     });
 
@@ -290,6 +316,5 @@ window.addEventListener('load', () => {
 
 function navigatorWidth(){
     document.getElementById("navig").style.width = "60%";
-    console.log("clicked");
 }
 // end::router[]

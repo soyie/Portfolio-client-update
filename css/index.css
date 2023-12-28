@@ -2,13 +2,13 @@ body{
   margin: 0;
   padding: 0;
   background-image: url("../assets/img/pexels-cottonbro-studio-4065876.jpg");
-  background-size: cover; /* or use 'contain' for a different effect */
-  background-position: center center; /* Center the background image */
+  background-size: cover;
+  background-position: center center;
   background-repeat: no-repeat;
-  
+  overflow-y: none;
+
 }
 #app {
-    /* height: 90vh; */
     max-width: 100%;
 }
 
@@ -31,8 +31,6 @@ body{
 
 nav{
   padding-bottom: 23px;
-  /* top: 40px; */
-  /* height: 7%; */
   margin: 23px 0 0 0;
   padding: 0;
   text-align:left;
@@ -43,9 +41,7 @@ nav{
 #home, #my-skills{
     margin: 0;
     padding: 0;
-    /* background-color: rgba(0, 0, 0, 0.4); */
     width: 100%;
-    /* height: 100%; */
 }
 
 .text-container {
@@ -64,7 +60,7 @@ nav{
     color: snow;
     display: inline-block;
     overflow: hidden;
-    border-right: 2px solid #000; /* Adjust the color and thickness of the "cursor" */
+    border-right: 2px solid #000;
     white-space: nowrap;
     animation: typing 2s steps(20, end), blink-caret 0.75s step-end infinite;
   }
@@ -106,10 +102,8 @@ nav a{
 }
 
 #welcome{
-  /* top: 65px; */
   right: 0;
   width: 380px;
-  /* height: 50px; */
   background-color: transparent;
 }
 
@@ -121,6 +115,7 @@ nav a{
   background-color: rgba(0, 0, 0, 0.7);
   height: 100vh;
   width: 100%;
+  overflow: auto;
 
 }
 #my-skills-list{
@@ -130,17 +125,9 @@ nav a{
   height: 125vh;
   width: 100%;
 }
-/* #about, #my-skills{
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
-  height: 100%;
-} */
 
 #about h3 i{
     position: relative;
-    /* top: 30px; */
     right: 0;
     padding: 0 60px 0px 30px;
     color: white;
@@ -153,7 +140,6 @@ nav a{
 }
 #image-side{
   flex: 1;
-  /* height: 100%; */
 }
 
 #inform{
@@ -235,6 +221,27 @@ nav a{
 .flexing-skills{
   flex: 1;
 }
+#single-project{
+  margin: 12px;
+  color: snow;
+  display: flex;
+  flex-wrap: wrap;
+}
+#first-side{
+  background-color: rgba(250, 235, 215, 0.205);
+  padding: 22px;
+  height: 400px;
+  overflow: none;
+  flex: 1;
+}
+
+#second-side {
+  background-color: rgba(250, 235, 215, 0.205);
+  padding: 22px;
+  height: 400px;
+  overflow: auto;
+  flex: 3;
+}
 
 #contact-class{
   margin: 0;
@@ -264,7 +271,6 @@ nav a{
 
 #ShowSkill{
   width: 90%;
-  /* height: 105vh; */
   background-Color: rgba(240, 248, 255, 0.945);
   z-Index: 1;
   position :absolute;
@@ -321,8 +327,8 @@ nav a{
 
 
 #passion{
-  color:snow; 
-  margin-top: 10px; 
+  color:snow;
+  margin-top: 10px;
   font-size: 20px;
 }
 
@@ -352,6 +358,7 @@ nav a{
 
   #myName h3 i{
     font-size: x-large;
+    padding-top: 35%;
     margin-top: 45px;
   }
   #myName h3{
@@ -361,9 +368,9 @@ nav a{
 
   nav a{
     top: 7px;
-    font-size: small;
+    font-size: 13px;
     margin:10px 0 0 0;
-    padding: 6px 11px;
+    padding: 16px 18px;
     background-color: rgba(0, 0, 0, 0.8);
     margin: 7px;
     color: snow;
@@ -404,7 +411,7 @@ nav a{
     color: snow;
     display: inline-block;
     overflow: hidden;
-    border-right: 2px solid #000; /* Adjust the color and thickness of the "cursor" */
+    border-right: 2px solid #000;
     white-space: nowrap;
     animation: typing 2s steps(20, end), blink-caret 0.75s step-end infinite;
   }
@@ -487,19 +494,19 @@ nav a{
   }
   
   #contact-class input{
-    width: 250px;
-    height: 20px;
-    margin-bottom: 5px;
+    width: 280px;
+    height: 24px;
+    margin-bottom: 9px;
   }
   
   
   #contact-class label {
     color: snow;
-    font-size: 15px;
+    font-size: 20px;
   }
   #message{
     margin-bottom: 25px;
-    width: 70%;
+    width: 80%;
 
   }
 
@@ -508,10 +515,49 @@ nav a{
     top: 33px;
     border-radius: 15px;
     margin: 60px 0 0 0;
-    padding: 15px 65px;
+    padding: 15px 85px;
     background-color: cadetblue;
+    font-size: 20px;
     margin: 32px;
     color: snow;
     text-decoration: none;
+  }
+  #single-project{
+    margin: 7px;
+    color: snow;
+    display: block;
+    flex-wrap: wrap;
+  }
+  #first-side{
+    background-color: rgba(250, 235, 215, 0.205);
+    padding: 22px;
+    height: 400px;
+    overflow: none;
+  }
+  
+  #second-side {
+    background-color: rgba(250, 235, 215, 0.205);
+    padding: 22px;
+    height: 400px;
+    overflow: auto;
+  }
+  #flexed-skills{
+    
+    display: block;
+  }
+  #flexing-skills{
+    flex:3;
+  }
+  .flexing-skills{
+    flex: 1;
+  }
+  #ShowSkill{
+    width: 85%;
+    background-Color: rgba(240, 248, 255, 0.945);
+    z-Index: 1;
+    position :absolute;
+    display: none;
+    padding: 5px;
+    overflow: scroll;
   }
 }
