@@ -102,7 +102,7 @@ function projectInfo(){
   }
 }
 
-fetch('http://192.168.243.66:8080/allApps')
+fetch('https://matola-sonwabo-portfolio.onrender.com/allApps')
   .then(response => {
     if (!response.ok) {
       document.getElementById("word").innerHTML = '<p>Something went Wrong</p>';
@@ -133,7 +133,7 @@ function SendMessage(){
     },
     body: JSON.stringify(data)
   };
-  fetch(`http://192.168.243.66:8080/SendMessage`, requestOptions)
+  fetch(`https://matola-sonwabo-portfolio.onrender.com/SendMessage`, requestOptions)
     .then(response => {
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
@@ -141,7 +141,7 @@ function SendMessage(){
       return response.json();
     })
     .then(data => {
-      console.log('Response data:', data);
+      document.getElementById("responseServer").value == data["Response"];
     })
     .catch(error => {
       console.error('Fetch error:', error);
