@@ -85,15 +85,15 @@ nav{
 
 
 nav a{
-  top: 13px;
-  margin:18px 0 0 0;
-  padding: 10px 19px;
-  background-color: cadetblue;
-  margin: 12px;
-  color: snow;
-  text-decoration: none;
+    top: 13px;
+    margin:18px 0 0 0;
+    padding: 10px 19px;
+    background-color: cadetblue;
+    margin: 12px;
+    color: snow;
+    text-decoration: none;
   
-}
+  }
 
 #welcome p{
   color: snow;
@@ -366,16 +366,16 @@ nav a{
     margin-top: 145px;
   }
 
-  nav a{
-    top: 7px;
-    font-size: 13px;
-    margin:10px 0 0 0;
-    padding: 16px 18px;
+  nav a {
+    font-size: 4.5vw; /* Use viewport width for font size */
+    margin: 4.5% 0 0 0; /* Use percentage-based margin */
+    padding: 3% 2.5%; /* Adjusted padding */
     background-color: rgba(0, 0, 0, 0.8);
-    margin: 7px;
+    margin: 1.5% 1%;
     color: snow;
     text-decoration: none;
     border-radius: 6px;
+    display: inline-block; /* Ensure the link behaves as a block element with padding */
   }
 
   .image-outside{
