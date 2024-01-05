@@ -3,7 +3,7 @@ descr = ''
 
 function getProjects() {
   const textElement = document.getElementById('animated-text');
-  const wordsToAnimate = ['Software Engineering', 'Cloud Architecture', 'Quality Assurance', 'Azure DevOps Engineer'];
+  const wordsToAnimate = ['Software Engineering', 'Cloud Architecture', 'Quality Assurance', 'Azure DevOps'];
 
   function typeWriter(wordIndex) {
     let charIndex = 0;
@@ -42,32 +42,31 @@ function showProjectSmallDet(){
       <p>Name: ${ "  "+project["name"]}</p>
       <p>Type: ${ "  "+project["type"]}</p>
       <p>Github: ${ "  "+project["gitHub"]}</p>
-      <p>Link: ${ "  "+project["link"]}</p>
-      <a href="#/Projects/${project["projectUID"]}">More</a>
+      <p>Link: ${ "  "+project["testLink"]}</p>
+      <a href="#/Projects/${project["projectId"]}">More</a>
     </div>
     `
   });
 }
 
-{}
 
 function findOneProject(uuid){
 
   Allprojects.forEach(project => {
-   if (project.projectUID == uuid){
+   if (project.projectId == uuid){
     document.getElementById("first-side").innerHTML = `
     <img src='data:image/png;base64, ${project["image"]}' width='220px' height='220px'>
     <p>Name: ${ "  "+project["name"]}</p>
     <p>Type: ${ "  "+project["type"]}</p>
     <p>Github: ${ "  "+project["gitHub"]}</p>
-    <p>Link: ${ "  "+project["link"]}</p>
+    <p>Link: ${ "  "+project["testLink"]}</p>
     `
     
     document.getElementById("second-side").innerHTML = `
     <p>${project["description"].replace(/\./g, (match, offset) => (offset % 3 === 2 ? ".<br><br>" : ".<br>"))}</p>
-    <img src='data:image/png;base64, ${project["screen1"]}' width='220px' height='220px'>
-    <img src='data:image/png;base64, ${project["screen2"]}' width='220px' height='220px'>
-    <img src='data:image/png;base64, ${project["screen3"]}' width='220px' height='220px'>
+    <img src='data:image/png;base64, ${project["image1"]}' width='220px' height='220px'>
+    <img src='data:image/png;base64, ${project["image2"]}' width='220px' height='220px'>
+    <img src='data:image/png;base64, ${project["image3"]}' width='220px' height='220px'>
 `
    }
   });
@@ -141,7 +140,9 @@ function SendMessage(){
       return response.json();
     })
     .then(data => {
-      document.getElementById("responseServer").value == data["Response"];
+      document.getElementById("contact-class").style.display = "none";
+      document.getElementById("responseServer").innerHTML = `<p>${data[1]}</p>`
+      document.getElementById("responseServer").style.display = "block";
     })
     .catch(error => {
       console.error('Fetch error:', error);
@@ -302,7 +303,7 @@ window.addEventListener('load', () => {
       showProjectSmallDet();
     });
 
-    router.add('/Projects/{projectUID}', async () => {
+    router.add('/Projects/{projectId}', async () => {
       html = projectInfoTemplate();
       app.html(html);
       findOneProject(window.location.hash.split("/")[2])

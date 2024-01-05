@@ -218,6 +218,13 @@ nav a{
 #flexing-skills{
   flex:3;
 }
+
+#responseServer{
+  margin: 150px 130px;
+  color: #3488f598;
+  font-size: large;
+  display: none;
+}
 .flexing-skills{
   flex: 1;
 }
@@ -343,6 +350,12 @@ nav a{
   #inform h2{
     font-size: large;
   }
+  #responseServer{
+    margin: 140px 0;
+    color: #34f5dbb0;
+    font-size: medium;
+    display: none;
+  }
 
 
   #welcome{
@@ -366,10 +379,11 @@ nav a{
     margin-top: 145px;
   }
 
+
   nav a {
-    font-size: 4.5vw; /* Use viewport width for font size */
-    margin: 4.5% 0 0 0; /* Use percentage-based margin */
-    padding: 3% 2.5%; /* Adjusted padding */
+    font-size: 4.5vw;
+    margin: 4.5% 0 0 0;
+    padding: 3% 2.5%;
     background-color: rgba(0, 0, 0, 0.8);
     margin: 1.5% 1%;
     color: snow;
